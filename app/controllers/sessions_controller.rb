@@ -1,8 +1,7 @@
-class SessionController < ApplicationController
+class SessionsController < ApplicationController
   def new
   end
-
-
+  
   def create
     user = User.find_by(user_params)
     if user && user.authenticate(params[:session][:password])
@@ -20,7 +19,6 @@ class SessionController < ApplicationController
   end
 
   private
-  
   def log_in(user)
     session[:user_id] = user.id
   end
@@ -33,5 +31,5 @@ class SessionController < ApplicationController
   def user_params
   params.require(:session).permit(:name, :email)
   end
-    
+  
 end
