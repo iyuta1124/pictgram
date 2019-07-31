@@ -12,6 +12,13 @@ Rails.application.routes.draw do
 
    resources :users
    resources :topics
+   resources :comments
+   
+   get 'favorites/index'
+   post '/favorites', to: 'favorites#create'
+   
+   get 'comments/index'
+   post '/comments', to: 'comments#create'
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # For detailsdetails on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
